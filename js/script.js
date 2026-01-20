@@ -62,7 +62,7 @@ window.onclick = (e) => {
     itemDetailModal.style.display = "none";
   }
 };
-
+// kirim data
 const form = document.querySelector("#contactForm");
 
 form.addEventListener("submit", function (e) {
@@ -93,4 +93,29 @@ form.addEventListener("submit", function (e) {
       console.error(err);
       alert("Koneksi bermasalah ❌");
     });
+});
+// search
+// ================= SEARCH FUNCTION =================
+searchBox.addEventListener("input", function () {
+  const keyword = searchBox.value.toLowerCase().trim();
+  let found = false;
+
+  document.querySelectorAll(".menu-card").forEach((item) => {
+    const name = item.dataset.name?.toLowerCase() || "";
+    const match = name.includes(keyword);
+    item.style.display = match ? "block" : "none";
+    if (match) found = true;
+  });
+
+  document.querySelectorAll(".products-card").forEach((item) => {
+    const name = item.dataset.name?.toLowerCase() || "";
+    const match = name.includes(keyword);
+    item.style.display = match ? "block" : "none";
+    if (match) found = true;
+  });
+
+  // AUTO SCROLL KE HASIL
+  if (keyword && found) {
+    document.querySelector("#products").scrollIntoView({ behavior: "smooth" });
+  }
 });
