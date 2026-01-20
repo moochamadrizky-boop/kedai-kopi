@@ -68,25 +68,29 @@ const form = document.querySelector("#contactForm");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const data = {
-    nama: document.querySelector("#nama").value,
-    email: document.querySelector("#email").value,
-    nohp: document.querySelector("#nohp").value,
-  };
+  const formData = new URLSearchParams();
+  formData.append("nama", document.querySelector("#nama").value);
+  formData.append("email", document.querySelector("#email").value);
+  formData.append("nohp", document.querySelector("#nohp").value);
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbw4Z1uGI7mjrmmUgXaGlMuZiNMYLMXTiNr-pXoCCdTrJW-Wbbm_7aEWBAa4d4xn4LIS/exec",
+    "https://script.google.com/macros/s/AKfycbw5xB3NYyyGZoh6ILSPxMwzebK_FbxkNUq6lt7Tu7v2o7cHLpXRXgaz7j_6Q6GGHjHR/exec",
     {
       method: "POST",
-      body: JSON.stringify(data),
+      body: formData,
     },
   )
-    .then((res) => res.json())
+    .then((res) => res.text())
     .then((res) => {
-      alert("Pesan berhasil dikirim 👍");
-      form.reset();
+      if (res.trim() === "success") {
+        alert("Pesan berhasil dikirim 👍");
+        form.reset();
+      } else {
+        alert("Gagal menyimpan data ❌");
+      }
     })
-    .catch(() => {
-      alert("Gagal mengirim data ❌");
+    .catch((err) => {
+      console.error(err);
+      alert("Koneksi bermasalah ❌");
     });
 });
