@@ -236,37 +236,47 @@
           referrerpolicy="no-referrer-when-downgrade"
           class="map"
         ></iframe>
-        <form action="">
-          <div class="input-group">
-            <i data-feather="user"></i>
-            <input type="text" placeholder="nama" />
-          </div>
-          <div class="input-group">
-            <i data-feather="mail"></i>
-            <input type="text" placeholder="Email" />
-          </div>
-          <div class="input-group">
-            <i data-feather="phone"></i>
-            <input type="text" placeholder="No HP" />
-          </div>
-          <button type="submit" class="btn">Kirim Pesan</button>
-        </form>
+        <form id="contactForm">
+  <div class="input-group">
+    <i data-feather="user"></i>
+    <input type="text" id="nama" placeholder="Nama" required />
+  </div>
+
+  <div class="input-group">
+    <i data-feather="mail"></i>
+    <input type="email" id="email" placeholder="Email" required />
+  </div>
+
+  <div class="input-group">
+    <i data-feather="phone"></i>
+    <input type="text" id="nohp" placeholder="No HP" required />
+  </div>
+
+  <button type="submit" class="btn">Kirim Pesan</button>
+</form>
+
       </div>
     </section>
     <!-- contact end -->
     <!-- footer start -->
     <footer>
       <div class="socials">
-        <a href="#"><i data-feather="instagram"></i></a>
-        <a href="#"><i data-feather="twitter"></i></a>
-        <a href="#"><i data-feather="facebook"></i></a>
-      </div>
-      <div class="links">
-        <a href="#home">Home</a>
-        <a href="#about">Tentang Kami</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Kontak</a>
-      </div>
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/moochamadrizky" target="_blank" aria-label="Instagram">
+    <i data-feather="instagram"></i>
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/Mochmad.rizky.505" target="_blank" aria-label="Facebook">
+    <i data-feather="facebook"></i>
+  </a>
+
+  <!-- WhatsApp (ganti Twitter) -->
+  <a href="https://wa.me/6285888602504" target="_blank" aria-label="WhatsApp">
+    <i data-feather="message-circle"></i>
+  </a>
+</div>
+
       <div class="credit">
         <p>created by <a href="">MochamadRizky.</a>. | &copy; 2025.</p>
       </div>

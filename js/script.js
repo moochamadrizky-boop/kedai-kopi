@@ -62,3 +62,31 @@ window.onclick = (e) => {
     itemDetailModal.style.display = "none";
   }
 };
+
+const form = document.querySelector("#contactForm");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const data = {
+    nama: document.querySelector("#nama").value,
+    email: document.querySelector("#email").value,
+    nohp: document.querySelector("#nohp").value,
+  };
+
+  fetch(
+    "https://script.google.com/macros/s/AKfycbw4Z1uGI7mjrmmUgXaGlMuZiNMYLMXTiNr-pXoCCdTrJW-Wbbm_7aEWBAa4d4xn4LIS/exec",
+    {
+      method: "POST",
+      body: JSON.stringify(data),
+    },
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      alert("Pesan berhasil dikirim 👍");
+      form.reset();
+    })
+    .catch(() => {
+      alert("Gagal mengirim data ❌");
+    });
+});
